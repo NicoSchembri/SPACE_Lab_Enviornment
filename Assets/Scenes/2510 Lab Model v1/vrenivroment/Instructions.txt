@@ -1,0 +1,1 @@
+With the room object, there are two different texture sets one is for concrete which should be openPBR. Other than that all the pictures should say how every material should be set up. 

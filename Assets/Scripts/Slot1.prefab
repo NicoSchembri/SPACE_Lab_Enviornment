@@ -162,7 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkObject
-  GlobalObjectIdHash: 402599346
+  GlobalObjectIdHash: 2352192350
   InScenePlacedSourceGlobalObjectIdHash: 0
   DeferredDespawnTick: 0
   Ownership: 1
@@ -200,8 +200,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b13076bbc4848c04fae6c37c49fb0554, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RankSlot
-  assignedRank: 1
-  currentCube: {fileID: 0}
+  itemName: {fileID: 0}
+  currentNumber: {fileID: 0}
 --- !u!1 &4308787365944288166
 GameObject:
   m_ObjectHideFlags: 0

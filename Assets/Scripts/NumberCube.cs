@@ -3,21 +3,23 @@ using TMPro;
 
 public class NumberCube : MonoBehaviour
 {
-    public int numberValue;
-    public TextMeshProUGUI numberText;
-
-    [HideInInspector] public Vector3 originalPosition;
     [HideInInspector] public RankSlot currentSlot;
+    [HideInInspector] public Vector3 originalPosition;
 
     private Rigidbody rb;
+
+    public TextMeshProUGUI itemName;
+    public GameObject highlight;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        originalPosition = transform.position;
 
-        if (numberText != null)
-            numberText.text = numberValue.ToString();
+        if (originalPosition == Vector3.zero)
+            originalPosition = transform.position;
+
+        if (highlight != null)
+            highlight.SetActive(false);
     }
 
     public void ReturnToOriginal()
@@ -28,8 +30,19 @@ public class NumberCube : MonoBehaviour
         }
 
         currentSlot = null;
+
         rb.linearVelocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
+
         transform.position = originalPosition;
+        transform.rotation = Quaternion.identity;
+
+        SetHighlight(false);
+    }
+
+    public void SetHighlight(bool state)
+    {
+        if (highlight != null)
+            highlight.SetActive(state);
     }
 }

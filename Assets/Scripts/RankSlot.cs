@@ -1,30 +1,22 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
+using TMPro;
 
-public class RankSlot : MonoBehaviour
+public class RankSlot : MonoBehaviour, IPointerClickHandler
 {
-    public TMPro.TextMeshProUGUI itemName;
+    public TextMeshProUGUI itemName; 
     [HideInInspector] public NumberCube currentNumber;
-
-    private void OnTriggerEnter(Collider other)
-    {
-        NumberCube cube = other.GetComponent<NumberCube>();
-
-        if (cube != null)
-        {
-            if (currentNumber != null)
-            {
-                currentNumber.ReturnToOriginal();
-            }
-
-            currentNumber = cube;
-            cube.currentSlot = this;
-            cube.transform.position = transform.position;
-            cube.transform.rotation = Quaternion.identity;
-        }
-    }
 
     public void ClearSlot()
     {
         currentNumber = null;
+
+        if (itemName != null)
+            itemName.text = "";
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        SelectionManager.Instance.PlaceInSlot(this);
     }
 }

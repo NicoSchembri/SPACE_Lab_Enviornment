@@ -15,10 +15,12 @@ public class RankingManager : MonoBehaviour
         {
             var slot = allSlots[i];
 
-            string name = slot.itemName.text;
-            int value = slot.currentNumber != null ? slot.currentNumber.numberValue : 0;
-
-            currentRanking[name] = value;
+            if (slot.currentNumber != null && slot.itemName != null)
+            {
+                string name = slot.itemName.text;         
+                int value = i + 1;                         
+                currentRanking[name] = value;
+            }
         }
 
         return currentRanking;
